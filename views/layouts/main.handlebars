@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		<title>Burgers!</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+	
+</head>
+<body>
+    {{{body}}}
+
+</body>
+
+<script>
+    $(".devour").on ("click", function (event){
+        console.log("stuff is happening")
+        var id = $(this).data("id");
+        console.log(id);
+        var devoured = 1
+        var newEaten = {
+            devoured:devoured
+        };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: newEaten
+        }).then(
+            function(){
+                console.log("changed devour to " + newEaten);
+                location.reload();
+            }
+        )
+
+    
+    })
+</script>
+</html>

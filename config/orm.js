@@ -1,16 +1,24 @@
-var connection  = require("connection.js");
+var connection  = require("./connection.js");
 
 var orm = {
-    selectAll: function (tableInput) {
-    var queryString = "SELECT * FROM ??";
-    connection.query(queryString, [tableInput],
+    selectAll: function (cb) {
+    var queryString = "SELECT * FROM burgers";
+    connection.query(queryString,
     function (err, result){
     if (err) throw err;
-    console.log(result);
+    cb(result)
+    // console.log(result);
     })
     },
-    insertOne: function () {},
-    updateOne: function (){}
+    // insertOne: function () {},
+    update: function (condition , cb ){
+        var queryString = "UPDATE burgers SET devoured = 1 WHERE id = " + condition;
+        console.log(queryString)
+        connection.query(queryString , function (err, result){
+            if (err) throw err;
+            cb(result);
+        })
+    }
 }
 
 module.exports = orm;
