@@ -18,6 +18,15 @@ var orm = {
             if (err) throw err;
             cb(result);
         })
+    },
+
+    create: function (name, cb){
+        var queryString = "INSERT INTO burgers (burger_name) VALUES (" + "'" + name + "'" + ");";
+        console.log(queryString)
+        connection.query(queryString , function (err, result){
+            if (err) throw err;
+            cb(result);
+        })
     }
 }
 

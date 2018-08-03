@@ -11,6 +11,12 @@ var burger = {
         orm.update(condition,function(res){
             cb(res);
         });
+    },
+
+    create: function (name, cb){
+        orm.create(name, function(res){
+            cb(res);
+        })
     }
 }
 

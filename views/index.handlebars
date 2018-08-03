@@ -9,10 +9,25 @@
     .burger-form{
         clear:both;
     }
+    .center{
+        text-align: center;
+    }
+    .burger-body{
+        margin-left:30%;
+        margin-top: 10%;
+    }
+    li {
+        background-color: gainsboro;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 5px;
+    }
 </style>
-<h1>Eat Da Burger</h1>
+<h1 class = "center">Eat Da Burger</h1>
+<img src = "../public/assets/img/burger.jpg">
+<div class = "burger-body">
 <div class = "to-eat">
-    <h1>Burger To Eat</h1>
+    <h1 >Burger To Eat</h1>
 <ul>
     {{#each burger}}
     
@@ -26,7 +41,7 @@
 </ul>
 </div>
 
-<div class = "eaten">
+<div class = "eaten ">
 
 <h1>Devoured</h1>
 
@@ -56,6 +71,7 @@
   
   <button type="submit">Add Burger</button>
 </form>
+</div>
 </div>
 
 
