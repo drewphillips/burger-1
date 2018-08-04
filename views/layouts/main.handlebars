@@ -26,6 +26,7 @@
 </body>
 
 <script>
+    //on click event will get the unique id off of the data-id attribute and will send an ajax call to my PUT method in burger_controller.js. This will send MYsql an updated devoured state of true
     $(".devour").on("click", function (event) {
         console.log("stuff is happening")
         var id = $(this).data("id");
@@ -46,12 +47,15 @@
         );
     });
 
+    //on click event to submit the form, this function grabs the burger name written in the input box, clears out the display, then triggers and ajax call to my post method in burger_controllers, which will insert a new burger into the burger table.
     $(".create-form").on("submit", function (evevnt) {
         event.preventDefault();
-
         var newBurger = {
             name: $("#burger").val().trim(),
-        }; $.ajax("/api/burgers", {
+        };
+        $("#burger").val("");
+
+        $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(
@@ -61,7 +65,6 @@
                 location.reload();
             }
         );
-
     });
 </script>
 

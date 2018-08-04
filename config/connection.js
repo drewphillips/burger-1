@@ -2,6 +2,8 @@ var mysql = require("mysql");
 
 var connection;
 
+//setting up the connection to mySQL database for use on either a local host or on heroku using a JAWSDB
+
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.end.JAWSDB_URL);
 } else {
@@ -14,6 +16,7 @@ if (process.env.JAWSDB_URL) {
     });
 
 }
+//launching my connection
 
 connection.connect(function (err) {
     if (err) {
@@ -22,5 +25,7 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId)
 });
+
+//exporting connection to use in other files
 
 module.exports = connection;

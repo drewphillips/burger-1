@@ -1,5 +1,8 @@
+
+//requiring orm so I can access the object created in that file
 var orm = require("../config/orm.js");
 
+//making an object called burger that can be called upon in burger_controllers, this object defines what will be passed into the cb functions
 var burger = {
     selectAll: function(cb){
         orm.selectAll(function(res){
@@ -20,5 +23,5 @@ var burger = {
     }
 }
 
-
+//exporting burger object for use in other files
 module.exports = burger;
